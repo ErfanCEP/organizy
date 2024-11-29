@@ -1,4 +1,10 @@
 /*LOG IN*/
+* {
+
+    margin: 0;
+    padding: 0;
+
+}
 
 .centro {
     display: flex;
