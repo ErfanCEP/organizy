@@ -1,0 +1,29 @@
+/*LOG IN*/
+* {
+
+    margin: 0;
+    padding: 0;
+
+}
+
+.centro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.benvingut {
+
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+body {
+    background-color: #EABFFA;
+}
+
+.lletra_blanca {
+    color: #EABFFA;
+}
+
+/*INDEX*/
