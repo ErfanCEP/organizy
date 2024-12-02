@@ -25,12 +25,16 @@
                         <input type="text" class="form-control">
                     </div>
                     <div class="mb-4">
-                        <label for="nom" class="form-label lletra_blanca">Contrasenya</label>
+                        <label for="correu" class="form-label lletra_blanca">Correu</label>
+                        <input type="email" class="form-control" name="correu">
+                    </div>
+                    <div class="mb-4">
+                        <label for="contrasenya" class="form-label lletra_blanca">Contrasenya</label>
                         <input type="password" class="form-control">
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-info my-4">Entrar</button>
-                        <button type="submit" class="btn btn-secondary ">Registrar-se</button>
+                        <a href="registrarse.php" class="btn btn-secondary">Registrar-se</a>
                     </div>
 
 
@@ -45,6 +49,7 @@
 
 
     <script src="bootstrap-5.3.3/dist/js/bootstrap.bundle.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
