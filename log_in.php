@@ -19,21 +19,17 @@
             </div>
             <div class="col bg-warning rounded-2">
                 <h2 class=" benvingut fw-bold text-center py-5 ps-5 pe-5 lletra_blanca">BENVINGUT A ORGANIZY</h2>
-                <form action="">
-                    <div class="mb-4">
-                        <label for="nom" class="form-label lletra_blanca ">Nom</label>
-                        <input type="text" class="form-control">
-                    </div>
+                <form action="controller.php" method="POST">
                     <div class="mb-4">
                         <label for="correu" class="form-label lletra_blanca">Correu</label>
                         <input type="email" class="form-control" name="correu">
                     </div>
                     <div class="mb-4">
                         <label for="contrasenya" class="form-label lletra_blanca">Contrasenya</label>
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" name="contrasenya">
                     </div>
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-info my-4">Entrar</button>
+                        <button type="submit" class="btn btn-info my-4" name="iniciar_sessio">Entrar</button>
                         <a href="registrarse.php" class="btn btn-secondary">Registrar-se</a>
                     </div>
 

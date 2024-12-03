@@ -8,7 +8,7 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost:80/organizy/registrarse.php",
+            "url": "http://localhost:80/organizy/form_projecte.php",
             "webRoot": "${workspaceFolder}"
         },
         {
