@@ -29,7 +29,7 @@ if (isset($_POST['iniciar_sessio'])) {
 
 if (isset($_POST['crear_projecte'])) {
 
-    crear_projecte($_POST['projecte_nom'], $_POST['projecte_descripcio']);
+    crear_projecte($_POST['nom'], $_POST['descripcio']);
 
     header('Location: index.php');
 

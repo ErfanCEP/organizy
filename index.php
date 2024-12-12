@@ -19,9 +19,44 @@
                 <img src="./img/logo_mov.gif" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                 <span class="text-primary">organIZY</span>
             </a>
-            <button type="button" class="btn btn-success">Crear Projecte</button>
+            <button type="button" class="btn btn-success" onclick="window.location.href='form_projecte.php'">Crear Projecte</button>
         </div>
     </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Listado de Proyectos</h1>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+
+                require_once 'bd.php';
+
+
+                $proyectos = mostrar_projectes('%', '%');
+
+                // Verificamos si hay resultados
+                if (!empty($proyectos)) {
+                    foreach ($proyectos as $proyecto) {
+                        echo "<tr>";
+                        echo "<td>" . htmlspecialchars($proyecto['nom']) . "</td>";
+                        echo "<td>" . htmlspecialchars($proyecto['descripcio']) . "</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='2' class='text-center'>No hay proyectos disponibles</td></tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+
+
 
 
 

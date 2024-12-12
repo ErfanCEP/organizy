@@ -8,7 +8,7 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost:80/organizy/form_projecte.php",
+            "url": "http://localhost:80/organizy/log_in.php",
             "webRoot": "${workspaceFolder}"
         },
         {
