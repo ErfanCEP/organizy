@@ -27,12 +27,12 @@
             <h2 class=" benvingut fw-bold text-center py-5 ps-5 pe-5 lletra_blanca">CREAR PROJECTE</h2>
             <form action="controller.php" method="POST">
                 <div class="mb-4">
-                    <label for="projecte_nom" class="form-label lletra_blanca">Nom</label>
-                    <input type="text" class="form-control sm-4" name="projecte_nom">
+                    <label for="nom" class="form-label lletra_blanca">Nom</label>
+                    <input type="text" class="form-control sm-4" name="nom" required>
                 </div>
                 <div class="mb-4">
-                    <label for="projecte_descripcio" class="form-label lletra_blanca">Descripció (opcional)</label>
-                    <input type="text" class="form-control sm-4" name="projecte_descripcio">
+                    <label for="descripcio" class="form-label lletra_blanca">Descripció (opcional)</label>
+                    <input type="text" class="form-control sm-4" name="descripcio">
                 </div>
                 <div class="">
                     <button type="submit" class="btn btn-info my-4" name="crear_projecte">Crear projecte</button>

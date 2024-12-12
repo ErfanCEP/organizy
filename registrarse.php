@@ -22,15 +22,15 @@
                 <form action="controller.php" method="POST">
                     <div class="mb-4">
                         <label for="nom" class="form-label lletra_blanca">Nom</label>
-                        <input type="text" class="form-control" name="nom">
+                        <input type="text" class="form-control" name="nom" required>
                     </div>
                     <div class="mb-4">
                         <label for="correu" class="form-label lletra_blanca">Correu</label>
-                        <input type="email" class="form-control" name="correu">
+                        <input type="email" class="form-control" name="correu" required>
                     </div>
                     <div class="mb-4">
                         <label for="contrasenya" class="form-label lletra_blanca">Contrasenya</label>
-                        <input type="password" class="form-control" name="contrasenya">
+                        <input type="password" class="form-control" name="contrasenya" required>
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-secondary" name="insert">Registrar-se</button>
