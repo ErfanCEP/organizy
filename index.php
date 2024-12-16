@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 ?>
@@ -40,10 +41,7 @@ session_start();
             <tbody>
                 <?php
 
-                require_once 'bd.php';
-
-
-                $proyectos = mostrar_projectes('%', '%');
+                require_once 'api/seleccionar_projectes.php';
 
                 // Verificamos si hay resultados
                 if (!empty($proyectos)) {
@@ -62,11 +60,17 @@ session_start();
     </div>
 
 
+    <div id="card" class="d-flex justify-content-center align-items-center vh-80">
+        <div class="card d-flex justify-content-center align-items-center text-center" style=" width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Projecte 1</h5>
+                <p class="card-text">Descripció projecte 1</p>
+                <a href="#" class="btn btn-warning">Editar projecte</a>
+            </div>
+        </div>
+    </div>
 
-
-
-
-
+    <script src="crear_projecte.js"></script>
     <script src="bootstrap-5.3.3/dist/js/bootstrap.bundle.js"></script>
     <script src="script.js"></script>
 </body>
