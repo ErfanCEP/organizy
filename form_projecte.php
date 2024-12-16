@@ -40,10 +40,6 @@
         </div>
     </form>
 
-
-
-
-
     <script src="bootstrap-5.3.3/dist/js/bootstrap.bundle.js"></script>
     <script src="script.js"></script>
 </body>
