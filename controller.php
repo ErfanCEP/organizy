@@ -8,7 +8,7 @@ if (isset($_POST['insert'])) {
 
     registrarse($_POST['nom'], $_POST['correu'], $_POST['contrasenya']);
 
-    header('Location: index.php');
+    header('Location: log_in.php');
 
     exit();
 }
