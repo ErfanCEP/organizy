@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar bg-warning py-20">
         <div class="container-fluid ">
-            <a class="navbar-brand " href="#">
+            <a class="navbar-brand " href="index.php">
                 <img src="./img/logo_mov.gif" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                 <span class="text-primary">organIZY</span>
             </a>

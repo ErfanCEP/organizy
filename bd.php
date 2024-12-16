@@ -45,7 +45,7 @@ function iniciar_sessio($correu, $contrasenya)
 
         $conexion = openBd();
 
-        $ordenBD = "select nom, correu from usuaris where correu = :correu and contrasenya = :contrasenya";
+        $ordenBD = "select id_usuari, nom, correu from usuaris where correu = :correu and contrasenya = :contrasenya";
         $stmt = $conexion->prepare($ordenBD);
         $stmt->bindParam(':correu', $correu);
         $stmt->bindParam(':contrasenya', $contrasenya);
@@ -53,14 +53,11 @@ function iniciar_sessio($correu, $contrasenya)
 
         $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $usuari = $stmt->fetch(PDO::FETCH_ASSOC);
-        $_SESSION['usuari'] = $usuari['id_usuari'];
-
-        $conexion = closeBd();
+        $_SESSION['usuari'] = $resultat['id_usuari'];
 
         if ($resultat) {
 
-            return $resultat['nom'];
+            return $resultat['id_usuari'];
         } else {
 
             return "noTrobat";
@@ -73,6 +70,11 @@ function iniciar_sessio($correu, $contrasenya)
 
 function crear_projecte($nom, $descripcio)
 {
+    if (!isset($_SESSION['usuari'])) {
+        // Redirigir al usuario si no está autenticado
+        header('Location: log_in.php');
+        exit;
+    }
 
     $conexion = openBd();
 
@@ -93,11 +95,12 @@ function crear_projecte($nom, $descripcio)
 
     //Insert de projecte a la taula ternaria de crear
 
-    $usuari = $_SESSION['usuari'];
+    $id_usuari = $_SESSION['usuari'];
+
     $ordenBD3 = "insert into crear (id_usuari, id_projecte, id_rol) values (:id_usuari, :id_projecte, 1)";
     $stmt = $conexion->prepare($ordenBD3);
-    $stmt->bindParam(':id_usuari', $usuari);
-    $stmt->bindParam(':id_projecte', $id_projecte_max); // Usar el valor correcto para id_projecte
+    $stmt->bindParam(':id_usuari', $id_usuari, PDO::PARAM_INT);
+    $stmt->bindParam(':id_projecte', $id_projecte_max, PDO::PARAM_INT);
 
     $stmt->execute();
 
@@ -112,8 +115,8 @@ function mostrar_projectes()
     // Consulta SQL con parámetros
     $sql = "SELECT 
                     p.id_projecte, 
-                    p.nom AS nom_projecte, 
-                    p.descripcio AS descripcio_projecte, 
+                    p.nom, 
+                    p.descripcio, 
                     u.nom AS nom_usuari, 
                     u.correu AS correu_usuari
                 FROM 
@@ -127,6 +130,8 @@ function mostrar_projectes()
 
     // Preparamos la consulta
     $stmt = $conexion->prepare($sql);
+
+    $id_usuari = $_SESSION['usuari'];
 
     // Asignamos el parámetro
     $stmt->bindParam(':id_usuari', $id_usuari, PDO::PARAM_INT);
