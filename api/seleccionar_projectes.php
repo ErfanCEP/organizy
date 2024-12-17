@@ -1,8 +1,7 @@
 <?php
 
-require_once("bd.php");
-
-header('Content-Type: application/json');
+require_once("../bd.php");
+session_start();
 
 // Abrimos la conexión a la base de datos
 $conexion = openBd();
@@ -37,10 +36,7 @@ $stmt->execute();
 // Obtenemos los resultados como un array asociativo
 $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Cerramos la conexión
-closeBd($conexion);
+// // Cerramos la conexión
+// closeBd($conexion);
 
-// Retornamos los resultados
-return $resultados;
-
-echo json_decode($resultados);
+echo json_encode($resultados);
