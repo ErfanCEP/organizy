@@ -22,50 +22,30 @@ session_start();
     <nav class="navbar bg-warning py-20">
         <div class="container-fluid ">
             <a class="navbar-brand " href="#">
-                <img src="./img/logo_mov.gif" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                <img src="./img/logo_mov.gif" alt="Logo" width="30" height="24" class="d-inline-block align-text-top" />
                 <span class="text-primary">organIZY</span>
             </a>
             <button type="button" class="btn btn-success" onclick="window.location.href='form_projecte.php'">Crear Projecte</button>
         </div>
     </nav>
+    <div>
 
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Listado de Proyectos</h1>
-        <table class="table table-striped table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
 
-                require_once 'api/seleccionar_projectes.php';
+        <?php
 
-                // Verificamos si hay resultados
-                if (!empty($proyectos)) {
-                    foreach ($proyectos as $proyecto) {
-                        echo "<tr>";
-                        echo "<td>" . htmlspecialchars($proyecto['nom']) . "</td>";
-                        echo "<td>" . htmlspecialchars($proyecto['descripcio']) . "</td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='2' class='text-center'>No hay proyectos disponibles</td></tr>";
-                }
-                ?>
-            </tbody>
-        </table>
+        // require_once('api/seleccionar_projectes.php');
+
+        ?>
     </div>
+
 
 
     <div id="card" class="d-flex justify-content-center align-items-center vh-80">
         <div class="card d-flex justify-content-center align-items-center text-center" style=" width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Projecte 1</h5>
-                <p class="card-text">Descripció projecte 1</p>
-                <a href="#" class="btn btn-warning">Editar projecte</a>
+                <h5 class="card-title">Test</h5>
+                <p class="card-text">Test</p>
+                <a href="#" class="btn btn-warning">Test</a>
             </div>
         </div>
     </div>

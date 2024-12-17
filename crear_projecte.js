@@ -5,10 +5,11 @@ window.addEventListener('load', () => {
             return resposta.json()
         })
         .then(function (projectes) {
-
-            const cardContainer = document.getElementById('card-container');
-
+            const cardContainer = document.querySelector('#card');
             for (const projecte of projectes) {
+
+                // createTd(tr, projecte.nom)
+                // createTd(tr, projecte.descripcio)
 
                 // Crear la tarjeta
                 const card = document.createElement('div');
@@ -46,16 +47,10 @@ window.addEventListener('load', () => {
                 // Agregar la tarjeta al contenedor principal
                 cardContainer.appendChild(card);
 
-
-
-
-
             }
 
-
-
-
-
         })
-
-})
+        .catch((e) => {
+            console.log("ERROR:" + e);
+        });
+});
