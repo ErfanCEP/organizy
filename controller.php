@@ -6,7 +6,7 @@ require_once('bd.php');
 
 if (isset($_POST['insert'])) {
 
-    registrarse($_POST['nom'], $_POST['correu'], $_POST['contrasenya']);
+    registrarse($_POST['nom'], $_POST['cognom'], $_POST['correu'], $_POST['contrasenya']);
 
     header('Location: log_in.php');
 

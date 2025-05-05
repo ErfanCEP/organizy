@@ -23,12 +23,12 @@ window.addEventListener('load', () => {
                 // Crear el título de la tarjeta
                 const cardTitle = document.createElement('h5');
                 cardTitle.className = 'card-title';
-                cardTitle.textContent = 'Projecte 1';
+                cardTitle.textContent = projecte.nom; 
 
                 // Crear el texto de la tarjeta
                 const cardText = document.createElement('p');
                 cardText.className = 'card-text';
-                cardText.textContent = 'Descripció projecte 1';
+                cardText.textContent = projecte.descripcio;
 
                 // Crear el botón de la tarjeta
                 const cardButton = document.createElement('a');

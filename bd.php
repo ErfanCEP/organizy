@@ -23,15 +23,16 @@ function closeBd()
     return null;
 }
 
-function registrarse($nom, $correu, $contrasenya)
+function registrarse($nom, $cognom, $correu, $contrasenya)
 {
 
     $conexion = openBd();
 
-    $ordenBD = "insert into usuaris ( nom, correu,  contrasenya) values (:nom, :correu, :contrasenya)";
+    $ordenBD = "insert into usuaris ( nom, cognom, correu,  contrasenya) values (:nom, :cognom, :correu, :contrasenya)";
     $stmt = $conexion->prepare($ordenBD);
     $stmt->bindParam(':correu', $correu);
     $stmt->bindParam(':nom', $nom);
+    $stmt->bindParam(':cognom', $cognom);
     $stmt->bindParam(':contrasenya', $contrasenya);
     $stmt->execute();
 
@@ -97,10 +98,13 @@ function crear_projecte($nom, $descripcio)
 
     $id_usuari = $_SESSION['usuari'];
 
-    $ordenBD3 = "insert into crear (id_usuari, id_projecte, id_rol) values (:id_usuari, :id_projecte, 1)";
+    $ordenBD3 = "insert into crear (id_usuari, id_projecte, id_rol) values (:id_usuari, :id_projecte, :id_rol)";
     $stmt = $conexion->prepare($ordenBD3);
     $stmt->bindParam(':id_usuari', $id_usuari, PDO::PARAM_INT);
     $stmt->bindParam(':id_projecte', $id_projecte_max, PDO::PARAM_INT);
+    $stmt->bindParam(':id_rol', $id_rol, PDO::PARAM_INT);
+    $id_rol = 1; // 1 = creador
+
 
     $stmt->execute();
 

@@ -25,6 +25,10 @@
                         <input type="text" class="form-control" name="nom" required>
                     </div>
                     <div class="mb-4">
+                        <label for="cognom" class="form-label lletra_blanca">Cognom</label>
+                        <input type="text" class="form-control" name="cognom" required>
+                    </div>
+                    <div class="mb-4">
                         <label for="correu" class="form-label lletra_blanca">Correu</label>
                         <input type="email" class="form-control" name="correu" required>
                     </div>
