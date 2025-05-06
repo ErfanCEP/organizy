@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
 
                 // Crear la tarjeta
                 const card = document.createElement('div');
-                card.className = 'card d-flex justify-content-center align-items-center text-center';
+                card.className = 'card d-flex justify-content-center align-items-center text-center m-2';
                 card.style.width = '18rem';
 
                 // Crear el cuerpo de la tarjeta
@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
                 // Crear el título de la tarjeta
                 const cardTitle = document.createElement('h5');
                 cardTitle.className = 'card-title';
-                cardTitle.textContent = projecte.nom; 
+                cardTitle.textContent = projecte.nom;
 
                 // Crear el texto de la tarjeta
                 const cardText = document.createElement('p');
@@ -32,14 +32,23 @@ window.addEventListener('load', () => {
 
                 // Crear el botón de la tarjeta
                 const cardButton = document.createElement('a');
-                cardButton.className = 'btn btn-warning';
+                cardButton.className = 'btn btn-warning m-2';
                 cardButton.href = '#';
                 cardButton.textContent = 'Editar projecte';
+
+                // Crear el botón de la tarjeta
+                const cardButtonCol = document.createElement('a');
+                cardButtonCol.className = 'btn btn-secondary m-2';
+                cardButtonCol.href = '#';
+                cardButtonCol.textContent = 'Afegir col·laborador';
+
+
 
                 // Agregar los elementos al cuerpo de la tarjeta
                 cardBody.appendChild(cardTitle);
                 cardBody.appendChild(cardText);
                 cardBody.appendChild(cardButton);
+                cardBody.appendChild(cardButtonCol);
 
                 // Agregar el cuerpo a la tarjeta
                 card.appendChild(cardBody);
