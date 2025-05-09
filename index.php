@@ -26,6 +26,9 @@ session_start();
                 <span class="text-primary">organIZY</span>
             </a>
             <button type="button" class="btn btn-success" onclick="window.location.href='form_projecte.php'">Crear Projecte</button>
+            <?php if (isset($_SESSION['usuari'])): ?>
+            <button class="btn btn-danger" onclick="window.location.href='log_in.php'">Tancar sesió</button>
+        <?php endif; ?>
         </div>
     </nav>
     <div>
