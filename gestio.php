@@ -29,6 +29,11 @@ session_start();
         </div>
     </nav>
     <div>
+        <div id="usuaris-container" class="mt-4">
+            <h3>Usuaris del projecte</h3>
+            <div id="usuaris-botons"></div>
+        </div>
+
     </div>
 
     
@@ -36,6 +41,7 @@ session_start();
     <script src="crear_projecte.js"></script>
     <script src="bootstrap-5.3.3/dist/js/bootstrap.bundle.js"></script>
     <script src="script.js"></script>
+    <script src="gestionar.js"></script>
 </body>
 
 </html>

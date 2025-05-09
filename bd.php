@@ -19,7 +19,6 @@ function openBd()
 
 function closeBd()
 {
-
     return null;
 }
 
@@ -110,3 +109,23 @@ function crear_projecte($nom, $descripcio)
 
     $conexion = closeBd();
 }
+
+function tancar_sessio()
+{
+    // Iniciar sesión si no está iniciada
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    // Eliminar todas las variables de sesión
+    $_SESSION = array();
+
+    // Destruir la sesión
+    session_destroy();
+
+    // Redirigir al usuario al inicio o login
+    header("Location: log_in.php");
+    exit;
+}
+
+
