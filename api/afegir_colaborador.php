@@ -4,10 +4,6 @@ require_once("../bd.php");
 session_start();
 
 try {
-    // Verificar si los datos necesarios están presentes
-    if (!isset($_POST['id_projecte']) || !isset($_POST['id_usuari']) || !isset($_POST['id_rol'])) {
-        throw new Exception("Faltan datos necesarios.");
-    }
 
     // Obtener los datos del POST
     $id_projecte = $_POST['id_projecte'];
