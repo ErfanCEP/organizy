@@ -2,11 +2,7 @@
 require_once("../bd.php");
 
 try {
-    // Verificar si se ha proporcionado el ID del proyecto
-    if (!isset($_GET['id_projecte'])) {
-        throw new Exception("Falta el ID del projecte.");
-    }
-
+  
     $id_projecte = intval($_GET['id_projecte']);
 
     // Abrir la conexión a la base de datos
