@@ -42,6 +42,9 @@ session_start();
     <script src="bootstrap-5.3.3/dist/js/bootstrap.bundle.js"></script>
     <script src="script.js"></script>
     <script src="gestionar.js"></script>
+    <script>
+    const idUsuari = <?php echo json_encode($_SESSION['usuari']); ?>;
+</script>
 </body>
 
 </html>

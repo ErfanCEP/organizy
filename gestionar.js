@@ -128,9 +128,9 @@ window.addEventListener('load', () => {
  // Funció per carregar les tasques d'un col·laborador i mostrar-les en targetes
 
 function carregarTasques(idUsuari, tasquesContainer) {
+
     // Cridar a l'API per obtenir les tasques del col·laborador
-   // fetch(`api/seleccionar_tasques.php?id_usuari=${idUsuari}`)
-     fetch(`api/seleccionar_tasques.php?id_usuari=1`)
+    fetch(`api/seleccionar_tasques.php?id_usuari=${idUsuari}`)
         .then(res => res.json())
         .then(tasques => {
             console.log(`Tasques de l'usuari ${idUsuari}:`, tasques);
@@ -143,22 +143,27 @@ function carregarTasques(idUsuari, tasquesContainer) {
                 noTasques.textContent = 'Aquest col·laborador no té tasques assignades.';
                 tasquesContainer.appendChild(noTasques);
             } else {
-                tasques.forEach(tasca => {
-                    // Crear una card per a cada tasca
+              
+                tasques.forEach(usuari => {
+                 if (!usuari || !Array.isArray(usuari.tasques)) return;
+
+                usuari.tasques.forEach(tasca => {
+                    if (!tasca) return;
+
                     const tascaCard = document.createElement('div');
                     tascaCard.className = 'card mb-2';
                     tascaCard.style = 'border: 1px solid #ccc; padding: 10px;';
-
                     tascaCard.innerHTML = `
                         <h5>${tasca.nom_tasca}</h5>
-                        <p><strong>Descripció:</strong> ${tasca.descripcio || 'Sense descripció'}</p>
+                        <p><strong>Descripció:</strong> ${tasca.descripcio ? tasca.descripcio : "Sense descripció"}</p>
                         <p><strong>Data inici:</strong> ${tasca.data_inici || 'No especificada'}</p>
                         <p><strong>Data fi:</strong> ${tasca.data_fi || 'No especificada'}</p>
                         <p><strong>Estat:</strong> ${tasca.estat || 'No especificat'}</p>
                     `;
-
                     tasquesContainer.appendChild(tascaCard);
                 });
+            });
+
             }
         })
         .catch(err => {
