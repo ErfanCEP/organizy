@@ -1,4 +1,10 @@
+
+
 window.addEventListener('load', () => {
+
+    // const params = new URLSearchParams(window.location.search);
+    // const idUsuari = params.get('id_usuari'); // Obté l'ID de l'usuari de la URL
+
     // Cargar proyectos
     fetch('api/seleccionar_projectes.php')
         .then(function (resposta) {
