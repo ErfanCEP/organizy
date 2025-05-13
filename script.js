@@ -24,4 +24,18 @@ window.addEventListener('load', () => {
         .catch(function (error) {
             console.error('Error al carregar col·laboradors:', error);
         });
+
+    // Cargar tareas
+
+    fetch(`api/seleccionar_tasques.php?id_usuari=${idUsuari}`)
+    .then(res => res.json())
+    .then(tasques => {
+        console.log(`Resposta de l'API per a l'usuari ${idUsuari}:`, tasques);
+    })
+    .catch(err => {
+        console.error('Error al carregar les tasques:', err);
+    });
+
+    
+    
 });
