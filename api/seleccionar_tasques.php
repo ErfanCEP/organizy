@@ -8,8 +8,7 @@ try {
     }
 
     $id_usuari = intval($_GET['id_usuari']);
-
-    // Obrir la connexió a la base de dades
+    $id_projecte = intval($_GET['id_projecte']); // Obrir la connexió a la base de dades
     $conexion = openBd();
 
     // Consulta per obtenir les tasques agrupades per col·laborador
@@ -20,11 +19,11 @@ try {
                 INNER JOIN usuaris u ON t.id_usuari = u.id_usuari
                 INNER JOIN estats e ON t.id_estat = e.id_estat
                 LEFT JOIN tipus tp ON t.id_tipus = tp.id_tipus
-                WHERE t.id_usuari = :id_usuari";
+                WHERE t.id_usuari = :id_usuari and t.id_projecte = :id_projecte";
 
         $stmt = $conexion->prepare($sql);
         $stmt->bindParam(':id_usuari', $id_usuari, PDO::PARAM_INT);
-      //  $stmt->bindParam(':id_projecte', $id_projecte, PDO::PARAM_INT);
+       $stmt->bindParam(':id_projecte', $id_projecte, PDO::PARAM_INT);
         $stmt->execute();
 
     // Obtenir els resultats
