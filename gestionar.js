@@ -1,21 +1,23 @@
 window.addEventListener('load', () => {
-    // Obtenir l'ID del projecte des de la URL
-    const params = new URLSearchParams(window.location.search);
-    const idProjecte = params.get('id_projecte');
-
-    if (!idProjecte) {
-        alert('No s\'ha proporcionat cap ID de projecte.');
-        return;
-    }
+    
 
     // Contenidor on s'afegiran els botons
     const usuarisContainer = document.getElementById('usuaris-botons');
+    const id_projecte = usuarisContainer.dataset.projecte; // Obtenir l'ID del projecte des del data attribute
 
     if (!usuarisContainer) {
         console.error('El contenidor #usuaris-botons no existeix.');
         return;
     }
 
+    // Obtenir l'ID del projecte des de la URL
+    // const params = new URLSearchParams(window.location.search);
+    // const idProjecte = params.get('id_projecte');
+
+    if (!id_projecte) {
+        alert('No s\'ha proporcionat cap ID de projecte.');
+        return;
+    }
     // Crear el botó per esborrar el projecte
     const deleteButton = document.createElement('button');
     deleteButton.className = 'btn btn-danger m-2';
@@ -33,7 +35,7 @@ window.addEventListener('load', () => {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: `id_projecte=${idProjecte}`,
+            body: `id_projecte=${id_projecte}`,
         })
             .then(res => res.json())
             .then(response => {
@@ -54,7 +56,7 @@ window.addEventListener('load', () => {
     usuarisContainer.appendChild(deleteButton);
 
     // Obtenir els usuaris del projecte des de l'API
-    fetch(`api/obtenir_colaboradors.php?id_projecte=${idProjecte}`)
+    fetch(`api/obtenir_colaboradors.php?id_projecte=${id_projecte}`)
         .then(res => res.json())
         .then(usuaris => {
             if (usuaris.error) {
@@ -94,14 +96,14 @@ window.addEventListener('load', () => {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
-                        body: `id_projecte=${idProjecte}&id_usuari=${usuari.id_usuari}&nom_tasca=${encodeURIComponent(nomTasca)}&id_estat=${idEstat}&descripcio=${encodeURIComponent(descripcio)}&id_tipus=${idTipus}&data_inici=${dataInici}&data_fi=${dataFi}`,
+                        body: `id_projecte=${id_projecte}&id_usuari=${usuari.id_usuari}&nom_tasca=${encodeURIComponent(nomTasca)}&id_estat=${idEstat}&descripcio=${encodeURIComponent(descripcio)}&id_tipus=${idTipus}&data_inici=${dataInici}&data_fi=${dataFi}`,
                     })
                         .then(res => res.json())
                         .then(response => {
                             if (response.success) {
                                 alert(response.message);
                                 // Tornar a carregar les tasques després de crear-ne una
-                                carregarTasques(usuari.id_usuari, tasquesContainer);
+                                carregarTasques(usuari.id_usuari, tasquesContainer, id_projecte);
                             } else {
                                 alert(`Error: ${response.message}`);
                             }
@@ -116,7 +118,7 @@ window.addEventListener('load', () => {
                 usuarisContainer.appendChild(tasquesContainer);
 
                 // Carregar les tasques inicialment
-                carregarTasques(usuari.id_usuari, tasquesContainer);
+                carregarTasques(usuari.id_usuari, tasquesContainer, id_projecte);
             });
         })
         .catch(err => {
@@ -127,10 +129,10 @@ window.addEventListener('load', () => {
 
  // Funció per carregar les tasques d'un col·laborador i mostrar-les en targetes
 
-function carregarTasques(idUsuari, tasquesContainer) {
+function carregarTasques(idUsuari, tasquesContainer, id_projecte) {
 
     // Cridar a l'API per obtenir les tasques del col·laborador
-    fetch(`api/seleccionar_tasques.php?id_usuari=${idUsuari}`)
+    fetch(`api/seleccionar_tasques.php?id_usuari=${idUsuari}&id_projecte=${id_projecte}`)
         .then(res => res.json())
         .then(tasques => {
             console.log(`Tasques de l'usuari ${idUsuari}:`, tasques);

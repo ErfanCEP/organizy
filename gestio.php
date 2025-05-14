@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$id_projecte = $_GET['id_projecte'];
 
 ?>
 
@@ -29,9 +30,9 @@ session_start();
         </div>
     </nav>
     <div>
-        <div id="usuaris-container" class="mt-4">
+        <div id="usuaris-container" class="mt-4" >
             <h3>Usuaris del projecte</h3>
-            <div id="usuaris-botons"></div>
+            <div id="usuaris-botons" data-projecte="<?php echo $id_projecte; ?>"></div>
         </div>
 
     </div>

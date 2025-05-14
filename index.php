@@ -53,6 +53,7 @@ session_start();
         </div>
     </div>
 
+    <script src="carregar_projectes.js"></script>
     <script src="crear_projecte.js"></script>
     <script src="bootstrap-5.3.3/dist/js/bootstrap.bundle.js"></script>
     <script src="script.js"></script>
