@@ -1,4 +1,10 @@
 // Función para manejar el evento de añadir colaborador
+/**
+ * Description placeholder
+ *
+ * @param {*} cardBody 
+ * @param {*} idProjecte 
+ */
 function afegirColaborador(cardBody, idProjecte) {
     // Verificar si el select ya existe
     if (cardBody.querySelector('.select-container')) {
